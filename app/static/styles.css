@@ -112,6 +112,35 @@ button:hover {
   color: var(--warn);
 }
 
+.result.processing {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.result.processing::before {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  border: 2px solid var(--line);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  content: "";
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .result.processing::before {
+    animation-duration: 2s;
+  }
+}
+
 @media (max-width: 640px) {
   .app-shell {
     padding: 20px;
