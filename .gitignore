@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Keep local datasets and trained model artifacts out of source control.
+data/
+models/
+
+# Kaggle credentials should stay private on the machine.
+kaggle.json

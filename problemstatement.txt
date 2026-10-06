@@ -1,0 +1,24 @@
+Exercise/Todays Task : download nemonia dataset from kagle (chest X-ray)
+ 
+implement CNN model to predict nemonia +ve /-Ve based on the given chest xray
+ 
+use your own unique CNN architecture
+ 
+Use the following as well: 1. dropout regularization, batch regularization, data augmentation
+ 
+keep the dataset in the machine
+ 
+corn leaf blight detection
+ 
+Front end :html,css javascript
+ 
+Backend: fast api
+ 
+DL model: RESNET50
+ 
+create an application in conda environment(jupyter) and run through uvicorn server 
+
+if possible ,deploy it in render
+ 
+or else deploy it in GCP or azure if you have account
+ 
