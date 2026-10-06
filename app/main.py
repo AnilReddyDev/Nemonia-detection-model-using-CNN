@@ -50,6 +50,12 @@ def index() -> FileResponse:
     return FileResponse(PROJECT_ROOT / "app" / "static" / "index.html")
 
 
+@app.get("/health")
+def liveness() -> dict[str, str]:
+    """Confirm the web process is responding, independently of model readiness."""
+    return {"status": "ok"}
+
+
 @app.get("/api/health")
 def health() -> dict[str, bool | str | None]:
     """Return the model status so the frontend can tell the user what to do next."""
