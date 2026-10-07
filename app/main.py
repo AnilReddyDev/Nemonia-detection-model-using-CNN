@@ -50,6 +50,12 @@ def index() -> FileResponse:
     return FileResponse(PROJECT_ROOT / "app" / "static" / "index.html")
 
 
+@app.get("/demo")
+def demo() -> FileResponse:
+    """Serve a small gallery page containing test images for demonstrations."""
+    return FileResponse(PROJECT_ROOT / "app" / "static" / "demo.html")
+
+
 @app.get("/health")
 def liveness() -> dict[str, str]:
     """Confirm the web process is responding, independently of model readiness."""
