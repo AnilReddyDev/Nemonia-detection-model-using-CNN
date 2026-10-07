@@ -59,6 +59,21 @@ python src/train.py --architecture resnet50 --epochs 10
 
 The trained model is saved to `models/pneumonia_model.keras`.
 
+## Important points to remember when explaining this project
+
+- This project is a binary chest X-ray classifier: it predicts whether an image is `NORMAL` or `PNEUMONIA`.
+- The model is trained on the `data/chest_xray/train` folder, which contains 5,216 images in total: 1,341 normal and 3,875 pneumonia cases.
+- The validation folder `data/chest_xray/val` is used during training to monitor performance and trigger EarlyStopping, not to train the model weights.
+- The test folder `data/chest_xray/test` is used for the final evaluation after training is complete.
+- An epoch means one full pass through the full training dataset. In this project, with a batch size of 32, one epoch is roughly 163 batches because 5216 / 32 ≈ 163.
+- The default training setting is `--epochs 10`, which means the model sees the training data 10 times unless stopped earlier by EarlyStopping.
+- The training code uses validation loss to save the best model and prevent overfitting. This is visible in `src/train.py` where `EarlyStopping` and `ModelCheckpoint` are configured.
+- The app is a simple end-to-end ML project: dataset -> model training -> saved model -> FastAPI backend -> browser UI.
+- If you are explaining it to a reviewer, emphasize that the task is classification of lung X-rays, not generic image generation or segmentation.
+- Dropout regularization: randomly turns off some neurons during training so the model does not rely too much on a few features and becomes more robust.
+- Batch normalization: normalizes the activations inside each mini-batch so training becomes more stable and faster.
+- Data augmentation: creates modified versions of images such as flips, zoom, rotation, and shifts so the model learns to generalize better and not memorize the training set.
+
 ## Run App
 
 ```bash
